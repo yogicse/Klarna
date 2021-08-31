@@ -39,8 +39,8 @@ class Available
      * AfterIsAvailable
      *
      * @param  Kp     $subject
-     * @param  [type] $result
-     * @return [bool]
+     * @param  bool $result
+     * @return bool
      */
     public function afterIsAvailable(Kp $subject, $result): bool
     {
