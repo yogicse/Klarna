@@ -1,15 +1,17 @@
 <?php
-namespace Ziffity\Klarna\Plugin;
 /**
- * Class Available
- *
- * @package Ziffity\Klarna\Plugin
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @category Payment_Gateway
+ * @author Yogendra <yogendrakumar.maurya@gmail.com>
  */
+namespace Ziffity\Klarna\Plugin;
 
 use Magento\Checkout\Model\Session as CheckoutSession;
 use Klarna\Kp\Model\Payment\Kp;
 
+/**
+ * Class Available
+ * Ziffity\Klarna\Plugin
+ */
 class Available
 {
     /**
@@ -27,21 +29,20 @@ class Available
     }
 
     /**
+     * AfterIsAvailable
      *
-     * @param Kp $subject
-     * @param $result
-     * @return bool
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @param  Kp     $subject
+     * @param  [type] $result
+     * @return [bool]
      */
     public function afterIsAvailable(Kp $subject, $result): bool
     {
         $quote = $this->checkoutSession->getQuote();
-        if($quote->getCouponCode() || $quote->getAppliedRuleIds()) {
+        if ($quote->getCouponCode() || $quote->getAppliedRuleIds()) {
 
             return false;
         }
 
         return true;
-
     }
 }
