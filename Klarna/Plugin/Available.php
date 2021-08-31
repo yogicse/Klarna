@@ -19,13 +19,20 @@ class Available
      */
     protected $checkoutSession;
 
+    protected $curl;
+
     /**
-     * @param checkoutSession $checkoutSession
+     * Construct
+     *
+     * @param CheckoutSession                     $checkoutSession
+     * @param \Magento\Framework\HTTP\Client\Curl $curl
      */
     public function __construct(
-        CheckoutSession $checkoutSession
+        CheckoutSession $checkoutSession,
+        \Magento\Framework\HTTP\Client\Curl $curl
     ) {
         $this->checkoutSession = $checkoutSession;
+        $this->curl = $curl;
     }
 
     /**
@@ -44,5 +51,24 @@ class Available
         }
 
         return true;
+    }
+
+    /**
+     * AfterIsActive
+     *
+     * @param  Kp     $subject
+     * @return bool
+     */
+    public function afterIsActive(Kp $subject): bool
+    {
+        $url = "http://magento236p1.local/";
+        try {
+            $this->curl->get($url);
+            $result = $this->curl->getBody();
+
+            return (bool) $result;
+        } catch (Exception $e) {
+            return false;
+        }
     }
 }
