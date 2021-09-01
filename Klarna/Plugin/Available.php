@@ -39,7 +39,7 @@ class Available
      * AfterIsAvailable
      *
      * @param  Kp     $subject
-     * @param  bool $result
+     * @param  bool   $result
      * @return bool
      */
     public function afterIsAvailable(Kp $subject, $result): bool
@@ -61,7 +61,8 @@ class Available
      */
     public function afterIsActive(Kp $subject): bool
     {
-        $url = "http://magento236p1.local/";
+
+        $url = "http://localhost/api/";
         try {
             $this->curl->get($url);
             $result = $this->curl->getBody();
