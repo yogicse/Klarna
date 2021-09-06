@@ -19,20 +19,15 @@ class Available
      */
     protected $checkoutSession;
 
-    protected $curl;
-
     /**
      * Construct
      *
      * @param CheckoutSession                     $checkoutSession
-     * @param \Magento\Framework\HTTP\Client\Curl $curl
      */
     public function __construct(
-        CheckoutSession $checkoutSession,
-        \Magento\Framework\HTTP\Client\Curl $curl
+        CheckoutSession $checkoutSession
     ) {
         $this->checkoutSession = $checkoutSession;
-        $this->curl = $curl;
     }
 
     /**

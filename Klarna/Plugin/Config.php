@@ -7,6 +7,18 @@ class Config
 {
 
     private const KP_CONIG_PATH = 'payment/klarna_kp/active';
+    protected $curl;
+
+    /**
+     * Construct
+     *
+     * @param \Magento\Framework\HTTP\Client\Curl $curl
+     */
+    public function __construct(
+        \Magento\Framework\HTTP\Client\Curl $curl
+    ) {
+        $this->curl = $curl;
+    }
 
     /**
      * After Set Flag
