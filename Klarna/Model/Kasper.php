@@ -18,7 +18,7 @@ class Kasper extends \Klarna\Kp\Model\Api\Builder\Kasper
      *
      * @param array $orderLine
      */
-    public function addOrderLine(array $orderLine) : Kasper
+    public function addOrderLine(array $orderLine):\Klarna\Core\Model\Api\Builder
     {
         $_isImagedisabled = $this->configHelper
             ->isApiConfigFlag('inactiveimg', null);

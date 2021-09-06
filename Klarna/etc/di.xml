@@ -5,4 +5,7 @@
         <plugin sortOrder="1" name="restrictByCustomer"
             type="Ziffity\Klarna\Plugin\Available"/>
     </type>
+    <type name="Magento\Framework\App\Config">
+        <plugin name="Base_Klarna_Plugin_Config" type="Ziffity\Klarna\Plugin\Config" sortOrder="10" disabled="false"/>
+    </type>
 </config>

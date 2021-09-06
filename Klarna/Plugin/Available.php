@@ -52,24 +52,4 @@ class Available
 
         return true;
     }
-
-    /**
-     * AfterIsActive
-     *
-     * @param  Kp     $subject
-     * @return bool
-     */
-    public function afterIsActive(Kp $subject): bool
-    {
-
-        $url = "http://localhost/api/";
-        try {
-            $this->curl->get($url);
-            $result = $this->curl->getBody();
-
-            return (bool) $result;
-        } catch (Exception $e) {
-            return false;
-        }
-    }
 }
